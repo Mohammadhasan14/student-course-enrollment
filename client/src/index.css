@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.parent {
+  display: flex;
+  gap: 40px;
+  padding: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* .form_parents {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* .title_form {
+  margin-bottom: 15px;
+  text-align: center;
+} */
+
+/* .form_ele {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
+
+/* .label_ele {
+  font-size: 14px;
+  font-weight: 500;
+} */
+
+/* .input_ele,
+.textarea_ele {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+} */
+
+/* .input_ele:focus,
+.textarea_ele:focus {
+  border-color: #007bff;
+} */
+
+/* .add_btn {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+} */
+
+/* .add_btn:hover {
+  background-color: #0056b3;
+} */
+
+/* .list_parents {
+  width: 600px;
+} */
+
+/* .title_list {
+  margin-bottom: 15px;
+  text-align: center;
+} */
+
+/* .table_ele {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+} */
+
+/* .table_ele th,
+.table_ele td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+} */
+
+/* .table_ele th {
+  background-color: #007bff;
+  color: white;
+} */
+
+/* .action_btns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+} */
+
+/* .edit_btn {
+  padding: 5px 10px;
+  border: none;
+  background-color: orange;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
+/* .edit_btn:hover {
+  background-color: darkorange;
+} */
+
+/* .delete_btn {
+  padding: 5px 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
+/* .delete_btn:hover {
+  background-color: darkred;
+} */
