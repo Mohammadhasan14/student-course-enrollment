@@ -19,6 +19,11 @@ export const refreshToken = async (req: Request, res: Response) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_REFRESH_SECRET as string)
+
+        if (typeof decoded === 'string' || !decoded?.id) {
+            return res.status(403).json({ message: "Invalid token payload" })
+        }
+
         const tokens = authService.generateToken(decoded.id)
 
         res.json(tokens)

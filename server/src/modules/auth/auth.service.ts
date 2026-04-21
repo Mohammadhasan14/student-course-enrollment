@@ -8,10 +8,12 @@ export const loginUser = async ({ email, password }: any) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) throw new Error('Incorrect password!')
+    if (!user.id) {
 
-    const token = generateToken(user._id)
+    }
+    const token = generateToken(user._id.toString())
 
-    return (user, token)
+    return { user, token }
 }
 
 export const generateToken = async (userId: string) => {
