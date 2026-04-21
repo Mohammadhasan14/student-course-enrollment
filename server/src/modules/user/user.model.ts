@@ -1,9 +1,6 @@
-import mongoose from 'mongoose';
-import { IUser } from './user.interface';
+import { Schema, InferSchemaType, model } from 'mongoose';
 
-export interface IUserDocument extends IUser, Document { }
-
-const userSchema = new mongoose.Schema<IUserDocument>({
+const userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -30,4 +27,9 @@ const userSchema = new mongoose.Schema<IUserDocument>({
     }
 }, { timestamps: true })
 
-export default mongoose.model<IUserDocument>('User', userSchema)
+type User = InferSchemaType<typeof userSchema> & {
+    createdAt: Date,
+    updatedAt: Date
+}
+
+export default model<User>('User', userSchema)

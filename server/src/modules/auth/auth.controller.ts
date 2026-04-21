@@ -12,15 +12,18 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     }
 }
 
-export const refreshToken = async (req, res) => {
+export const refreshToken = async (req: Request, res: Response) => {
     const { token } = req.body;
 
     if (!token) return res.status(401).json({ message: 'No token' })
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_REFRESH_SECRET as string)
+        const tokens = authService.generateToken(decoded.id)
 
+        res.json(tokens)
     } catch (error) {
         console.log("error occured on refreshToken", error)
+        res.status(403).json({ message: 'Invalid refresh token' })
     }
 }
