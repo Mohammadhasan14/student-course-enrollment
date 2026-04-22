@@ -1,6 +1,7 @@
+import { Request, Response, NextFunction } from 'express';
 import * as userService from './user.service';
 
-export const registerUser = async (req, res, next) => {
+export const registerUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const user = await userService.createUser(req.body)
         res.send(200).json(user)
@@ -10,16 +11,16 @@ export const registerUser = async (req, res, next) => {
     }
 }
 
-export const loginUser = async (req, res, next) => {
+export const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
         console.log("functionality of a login here......")
     } catch (error) {
-        console.log("error occured whilt login user: ".error)
+        console.log("error occured whilt login user: ", error)
         next(error)
     }
 }
 
-export const getUser = async (req, res, next) => {
+export const getUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
 
         console.log("functionality of a getUser here.......")
@@ -29,7 +30,7 @@ export const getUser = async (req, res, next) => {
     }
 }
 
-export const getUsers = async (req, res, next) => {
+export const getUsers = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const users = await userService.getAllUser()
         res.send(users)
