@@ -1,33 +1,50 @@
 import { useEffect, useState } from "react";
 
 const totalBoxes = 10
+const totalGap = 5
 const sampleBoxes = Array(totalBoxes).fill(false)
 
 function App() {
   const [squareBoxes, setSquareBoxes] = useState(sampleBoxes)
-  const [currentIndex, setCurrentIndex] = useState(0)
-
+  const [startIndex, setStartIndex] = useState(0)
+  const [endIndex, setEndIndex] = useState(totalBoxes)
+  const [isEndReached, setEndReaced] = useState(false)
 
   useEffect(() => {
     let interval = setInterval(() => {
       setSquareBoxes(prev => {
-        if (totalBoxes === currentIndex) {
-          setCurrentIndex(0)
-          return sampleBoxes
-        }
-
         const boxes = [...prev]
+        console.log("startIndex", startIndex)
+        console.log("endIndex", endIndex)
+        console.log("totalBoxes", totalBoxes)
+        boxes[startIndex] = true
 
-        boxes[currentIndex] = true
+        if (isEndReached) {
+          console.log("triggered... endIndex")
+          boxes[endIndex] = false
+        }
         return boxes
       })
-      setCurrentIndex(pr => pr + 1)
-    }, 1000)
+      if (startIndex >= totalBoxes - 1) {
+        setStartIndex(0)
+      } else {
+        setStartIndex(pr => pr + 1)
+      }
+      if (startIndex + 1 === totalGap) {
+        setEndReaced(true)
+      }
+      if ((endIndex < totalBoxes - 1 && startIndex >= totalGap) || (endIndex < totalBoxes - 1 && endIndex >= totalGap)) {
+        setEndIndex(pr => pr + 1)
+      } else {
+        setEndIndex(0)
+      }
+      console.log("=============================================================")
+    }, 100)
 
     return () => {
       clearInterval(interval)
     }
-  }, [currentIndex])
+  }, [startIndex, endIndex])
 
   return (
     <div style={styles.parentDiv}>
