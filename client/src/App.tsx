@@ -48,11 +48,13 @@ function App() {
 
   return (
     <div style={styles.parentDiv}>
-      {squareBoxes.map((data, index) => {
-        return (
-          <div key={index} style={{ ...(styles.squareBoxes), ...({ backgroundColor: data ? '#fff' : '#000' }) }} ></div>
-        )
-      })}
+      <div style={styles.loaderWrap}>
+        {squareBoxes.map((data, index) => {
+          return (
+            <div key={index} style={{ ...(styles.squareBoxes), ...({ backgroundColor: data ? '#fff' : '#000' }) }} ></div>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -61,12 +63,20 @@ const styles = {
   squareBoxes: {
     width: '26px',
     height: '26px',
-    border: '1px solid #000'
+  },
+  loaderWrap: {
+    display: 'flex',
+    border: '2px solid #000000',
+    width: `${30 * totalBoxes}px`,
+    padding: '4px',
+    gap: '4px'
   },
   parentDiv: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(10, 40px)',
-    gap: '4px',
+    display: 'flex',
+    justify: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    width: '100vw',
     padding: '20px'
   }
 }
